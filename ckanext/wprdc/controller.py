@@ -19,6 +19,6 @@ class WPRDCController(base.BaseController):
         if h.url_is_local(came_from):
             ua.insert_new_agreement()
             response.set_cookie('wprdc_user_terms', 'true')
-            return base.redirect(came_from)
+            return h.redirect_to(came_from)
         else:
             base.abort(403, _('Redirecting to external site is not allowed.'))
